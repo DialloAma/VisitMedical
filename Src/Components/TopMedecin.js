@@ -1,20 +1,24 @@
 import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
 
 const {width}=Dimensions.get("window")
 const data=[
-    {name:"Diallo Abdourhamane Aziz",service:"Diabeto",ville:"Conakry",hopital:"donka"},
-    {name:"Diallo Abdourhamane Aziz",service:"Diabeto",ville:"Conakry",hopital:"donka"},
-    {name:"Diallo Abdourhamane Aziz",service:"Diabeto",ville:"Conakry",hopital:"donka"},
-    {name:"Diallo Abdourhamane Aziz",service:"Diabeto",ville:"Conakry",hopital:"donka"},
+    {name:"Diallo Abdourhamane",service:"Diabeto",ville:"Conakry",hopital:"donka"},
+    {name:"Diallo Abdourhamane ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
+    {name:"Diallo Abdourhamane ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
+    {name:"Diallo Abdourhamane ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
 ]
 
 const TopMedecin = () => {
+    const navigation=useNavigation()
   return (
     <View style={styles.top_medecin_container}>
         <View style={styles.header}>
         <Text style={{fontWeight:'bold',fontSize:20}}>Médecins actifs</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('medecinactif')}>
         <Text style={{fontWeight:'bold',color:"#179cbc"}}>Voir tous</Text>
         </TouchableOpacity>
         
@@ -38,9 +42,11 @@ const TopMedecin = () => {
 //une fonction pour afficher un seul docteur
 
 const AfficheDocteur=({items})=>{
+    const navigation= useNavigation()
+    
     return(
         <View style={styles.medecin_info}>
-            <Image source={require('../../Images/avatar.png')} style={{width:100,height:100,alignSelf:'center',marginVertical:5}}/>
+            <Image source={require('../../Images/avatar.png')} style={{width:100,height:100,alignSelf:'center',marginVertical:15}}/>
             <View style={{marginHorizontal:5}}>
             <Text style={{fontWeight:'bold'}}>{items.name}</Text>
             <Text style={{color:'lightgray',alignSelf:'center',fontWeight:'bold'}}>{items.service}</Text>
@@ -54,8 +60,9 @@ const AfficheDocteur=({items})=>{
             </View>
             </View>
             <View style={{flexDirection:'row-reverse',marginHorizontal:10}}>
-            <TouchableOpacity style={styles.joindr}>
+            <TouchableOpacity onPress={()=>navigation.navigate('joindremedecin')} style={styles.joindr}>
                     <Text style={{color:'white',fontWeight:'bold'}}>Joindre</Text>
+                    <FontAwesome name='arrow-right' style={{fontSize:20, color:'white',marginHorizontal:5}}/>
                 </TouchableOpacity>
             </View>
                
@@ -70,8 +77,10 @@ export default TopMedecin
 const styles = StyleSheet.create({
     top_medecin_container:{
         width:width,
-        height:width/1-80,
+        height:width/1-85,
         marginVertical:5,
+       
+        
         
     },
     header:{
@@ -84,8 +93,8 @@ const styles = StyleSheet.create({
        backgroundColor:'white',
        marginHorizontal:5,
        marginVertical:5,
-       width:width/2,
-       height:width/1-140,
+       width:width/2-35,
+       height:width/1-145,
        elevation:8,
        borderRadius:5
     },
@@ -94,7 +103,7 @@ const styles = StyleSheet.create({
         justifyContent:"flex-end",
         backgroundColor:"#179cbc",
         width:90,
-        marginVertical:10,
+        marginVertical:5,
         alignItems:'center',
         borderRadius:5,
         padding:5

@@ -1,16 +1,18 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const {width}=Dimensions.get("window")
 
 const PatientHisto = () => {
+  const navigation=useNavigation()
   return (
     <View style={styles.histo_container}>
-      <TouchableOpacity activeOpacity={0.5} style={styles.histo}>
+      <TouchableOpacity onPress={()=>navigation.navigate('histo')} activeOpacity={0.5} style={styles.histo}>
         <Image source={require('../../Images/historique.png')} style={{width:50,height:50,marginVertical:10}}/>
         <Text style={styles.titre}>Mon Historique</Text>
       </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.5}  style={styles.histo}>
+      <TouchableOpacity onPress={()=>navigation.navigate('dosierMedical')} activeOpacity={0.5}  style={styles.histo}>
       <Image source={require('../../Images/medical-records.png')} style={{width:50,height:50,marginVertical:10}}/>
       <Text style={styles.titre}>Mon Dossier Médical</Text>
       </TouchableOpacity>
@@ -40,6 +42,7 @@ const styles = StyleSheet.create({
     },
     titre:{
         fontWeight:'bold',
-        fontSize:20
+        fontSize:18,
+       
     }
 })

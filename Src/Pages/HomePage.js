@@ -4,14 +4,18 @@ import Categories from '../Components/Categories'
 import PatientHisto from '../Components/PatientHisto'
 import TopMedecin from '../Components/TopMedecin'
 import Boutons from '../Components/Boutons'
+import Header from './Header'
+import { useNavigation } from '@react-navigation/native'
 
 const HomePage = () => {
+  const navigation = useNavigation();
   return (
     <View>
+      <Header/>
       <Categories/>
       <PatientHisto/>
       <TopMedecin/>
-      <Boutons title="Mes conseils du jour" style={styles.button} styleTitre={styles.titre}/>
+      <Boutons onPress={()=>navigation.navigate("conseil")} title="Mes conseils du jour" style={styles.button} styleTitre={styles.titre}/>
     </View>
   )
 }
@@ -24,7 +28,7 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:"#179cbc",
         marginHorizontal:30,
-        height:45
+        height:40
     },
     titre:{
        fontSize:20,

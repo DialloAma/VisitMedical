@@ -1,16 +1,19 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { useNavigation } from '@react-navigation/native'
 
 const {width} = Dimensions.get("window")
 
 const Header = () => {
+  const navigation=useNavigation()
   return (
     <View style={styles.header_containent}>
-      <TouchableOpacity style={styles.items}>
-        <Image source={require('../../Images/profil.png')} style={{width:30,height:30}}/>
+      <TouchableOpacity onPress={()=>navigation.openDrawer()} style={styles.items}>
+            <FontAwesome name='align-justify' style={{fontSize:30, color:'black'}}/>
       </TouchableOpacity>
       <Text style={styles.titre}>VISIT MEDICAL</Text>
-      <TouchableOpacity style={styles.items}>
+      <TouchableOpacity onPress={()=>navigation.navigate('profil')}  style={styles.items}>
       <Image source={require('../../Images/profil.png')} style={{width:30,height:30}}/>
       </TouchableOpacity>
     </View>
