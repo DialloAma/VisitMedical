@@ -10,7 +10,7 @@ import Hopitaux from '../Pages/Hopitaux'
 import Pharmacies from '../Pages/Pharmacies'
 import Médicaments from '../Pages/Médicaments'
 import MedecinsActif from '../Pages/MedecinsActif'
-import JoindreMedecin from '../Pages/JoindreMedecin'
+import Notification from '../Pages/Notification'
 import Conseils from '../Pages/Conseils'
 import Profil from '../Pages/Profil'
 
@@ -29,7 +29,7 @@ const MyStack = () => {
         <Stack.Screen options={{headerTitle:"Pharmacies"}} name='pharmacie' component={Pharmacies}/>
         <Stack.Screen options={{headerTitle:"Médicaments"}} name='medicament' component={Médicaments}/>
         <Stack.Screen options={{headerTitle:"Médecins Actifs"}} name='medecinactif' component={MedecinsActif}/>
-        <Stack.Screen options={{headerTitle:"Joindre un Médecin"}} name='joindremedecin' component={JoindreMedecin}/>
+        <Stack.Screen options={{headerTitle:"Notification"}} name='notification' component={Notification}/>
         <Stack.Screen options={{headerTitle:"Mes conseils"}} name='conseil' component={Conseils}/>
         <Stack.Screen options={{headerTitle:"Mon Profil"}} name='profil' component={Profil}/>
       </Stack.Navigator>

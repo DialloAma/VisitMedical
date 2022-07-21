@@ -6,10 +6,10 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 const {width}=Dimensions.get("window")
 const data=[
-    {name:"Diallo Abdourhamane",service:"Diabeto",ville:"Conakry",hopital:"donka"},
-    {name:"Diallo Abdourhamane ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
-    {name:"Diallo Abdourhamane ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
-    {name:"Diallo Abdourhamane ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
+    {name:"Diallo Abdourhamane abdoulaye cissoko",service:"dermatologie",ville:"Conakry",hopital:"donka"},
+    {name:"Diallo Abdou ",service:"Diabeto",ville:"labe",hopital:"donka"},
+    {name:"Diallo Amadou oury ",service:"Diabeto",ville:"mamou",hopital:"donka"},
+    {name:"Diallo Ibrahhima ",service:"Diabeto",ville:"Conakry",hopital:"donka"},
 ]
 
 const TopMedecin = () => {
@@ -45,7 +45,7 @@ const AfficheDocteur=({items})=>{
     const navigation= useNavigation()
     
     return(
-        <View style={styles.medecin_info}>
+        <TouchableOpacity onPress={()=>navigation.navigate('profil',{items})} style={styles.medecin_info}>
             <Image source={require('../../Images/avatar.png')} style={{width:100,height:100,alignSelf:'center',marginVertical:15}}/>
             <View style={{marginHorizontal:5}}>
             <Text style={{fontWeight:'bold'}}>{items.name}</Text>
@@ -59,16 +59,16 @@ const AfficheDocteur=({items})=>{
                  <Text style={{fontWeight:'bold'}}>{items.hopital}</Text>
             </View>
             </View>
-            <View style={{flexDirection:'row-reverse',marginHorizontal:10}}>
-            <TouchableOpacity onPress={()=>navigation.navigate('joindremedecin')} style={styles.joindr}>
+           {/* <View style={{flexDirection:'row-reverse',marginHorizontal:10}}>
+            <TouchableOpacity onPress={()=>navigation.navigate('profil',{items})} style={styles.joindr}>
                     <Text style={{color:'white',fontWeight:'bold'}}>Joindre</Text>
                     <FontAwesome name='arrow-right' style={{fontSize:20, color:'white',marginHorizontal:5}}/>
                 </TouchableOpacity>
-            </View>
+    </View>*/}
                
         
             
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
     },
     medecin_info:{
        backgroundColor:'white',
-       marginHorizontal:5,
+       marginHorizontal:10,
        marginVertical:5,
        width:width/2-35,
-       height:width/1-145,
+       height:width/1-150,
        elevation:8,
        borderRadius:5
     },

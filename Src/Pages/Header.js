@@ -12,9 +12,9 @@ const Header = () => {
       <TouchableOpacity onPress={()=>navigation.openDrawer()} style={styles.items}>
             <FontAwesome name='align-justify' style={{fontSize:30, color:'black'}}/>
       </TouchableOpacity>
-      <Text style={styles.titre}>VISIT MEDICAL</Text>
-      <TouchableOpacity onPress={()=>navigation.navigate('profil')}  style={styles.items}>
-      <Image source={require('../../Images/profil.png')} style={{width:30,height:30}}/>
+      <Text style={styles.titre}>VISA MEDICAL</Text>
+      <TouchableOpacity onPress={()=>navigation.navigate('notification')}  style={styles.items}>
+      <FontAwesome name='bell' style={{fontSize:30, color:'black'}}/>
       </TouchableOpacity>
     </View>
   )

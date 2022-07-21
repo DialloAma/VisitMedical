@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     },
     histo:{
         backgroundColor:'white',
-        width:width/2-40,
+        width:width/2-70,
         height:120,
-        marginHorizontal:20,
+        marginHorizontal:30,
         borderRadius:5,
         alignItems:'center'
         
@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
     titre:{
         fontWeight:'bold',
         fontSize:18,
+        color:'black',
+        textAlign:'center'
        
     }
 })
